@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: install base packages
+      yum: name={{item}}
+      with_items:
+        - libselinux-python
+        - gcc
+
+    - include: python.yml

@@ -1,0 +1,27 @@
+---
+- name: install required devel packages for Python
+  yum: name={{item}}
+  with_items:
+    - zlib-devel
+
+- name: check for Python 3.3 installed
+  command: test -e /opt/py33/bin/python3
+  register: check_py
+  ignore_errors: True
+
+- name: download Python
+  get_url: url=http://www.python.org/ftp/python/3.3.5/Python-3.3.5.tgz dest=/tmp
+  when: check_py|failed
+- name: extract Python tarball
+  command: tar -xvzf Python-3.3.5.tgz chdir=/tmp
+  when: check_py|failed
+
+- name: configure Python
+  command: ./configure --prefix=/opt/py33 chdir=/tmp/Python-3.3.5
+  when: check_py|failed
+- name: make Python
+  command: make chdir=/tmp/Python-3.3.5
+  when: check_py|failed
+- name: install Python
+  command: make install chdir=/tmp/Python-3.3.5
+  when: check_py|failed
