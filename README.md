@@ -9,6 +9,8 @@ Windows
 
 Requires [Microsoft Windows SDK for Windows 7 and .NET Framework 3.5 SP1](http://www.microsoft.com/en-us/download/details.aspx?id=3138) for Python 2.7 and [Microsoft Windows SDK for Windows 7 and .NET Framework 4](http://www.microsoft.com/en-us/download/details.aspx?id=8279) for Python 3.3 and above.
 
+You need to run the batch file in cmd with delayed expansion enabled by using `cmd /v`.
+
 
 License
 -------

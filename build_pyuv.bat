@@ -2,7 +2,6 @@ pip install -d . pyuv
 tar -xzf pyuv-*.tar.gz
 cd pyuv-*
 
-Setlocal EnableDelayedExpansion
 set DISTUTILS_USE_SDK=1
 
 call "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\SetEnv.cmd" /release /x86
